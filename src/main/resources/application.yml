@@ -12,7 +12,10 @@ mybatis:
     map-underscore-to-camel-case: true
   type-aliases-package: com.example.springbootdemo.domain
 
-
+#打印sql语句
+logging:
+  level:
+    com.springboot.mybatis.dao : debug
 
 
 
