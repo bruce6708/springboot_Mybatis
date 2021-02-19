@@ -1,6 +1,7 @@
 package com.springboot.mybatis.controller;
 
 import com.springboot.mybatis.domain.Company;
+import com.springboot.mybatis.domain.base.Result;
 import com.springboot.mybatis.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
