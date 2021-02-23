@@ -1,14 +1,15 @@
 package com.springboot.mybatis.controller;
 
 import com.springboot.mybatis.domain.Company;
-import com.springboot.mybatis.domain.base.Result;
 import com.springboot.mybatis.service.CompanyService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@Api(tags = "员工相关接口")
 @RestController
 public class CompanyController {
 
@@ -19,6 +20,7 @@ public class CompanyController {
      * 查询所有员工
      * @return
      */
+    @ApiOperation("查询所有员工")
     @RequestMapping("/selectAllStaff")
     public List<Company> selectAllStaff(){
         return companyService.selectAllStaff();
@@ -28,6 +30,7 @@ public class CompanyController {
      * 新增员工
      * @return
      */
+    @ApiOperation("新增员工")
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String  insertStaff(@RequestBody Company company){
         int id = company.getId();
@@ -42,6 +45,7 @@ public class CompanyController {
     /**
      * 修改
      */
+    @ApiOperation("修改员工信息")
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String updateStaffById(@RequestBody Company company){
         int id = company.getId();
@@ -55,6 +59,8 @@ public class CompanyController {
     /**
      * 批量删除
      */
+    @ApiOperation("批量删除员工信息")
+
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
     public String delete(@RequestParam("ids") List<Integer> ids){
         return companyService.delete(ids);
