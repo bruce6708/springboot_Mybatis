@@ -1,5 +1,7 @@
 package com.springboot.mybatis.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.springboot.mybatis.domain.Company;
 import com.springboot.mybatis.service.CompanyService;
 import io.swagger.annotations.Api;
@@ -15,6 +17,19 @@ public class CompanyController {
 
     @Autowired
     CompanyService companyService;
+
+    /**
+     * 分页查询所有员工
+     */
+    @ApiOperation("分页查询所有员工")
+    @GetMapping("/pages")
+    public PageInfo<Company> lists(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
+        PageHelper.startPage(pageNo,pageSize);
+        List<Company> list = companyService.selectAllStaff();
+        PageInfo<Company> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
 
     /**
      * 查询所有员工

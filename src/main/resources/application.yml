@@ -17,6 +17,12 @@ logging:
   level:
     com.springboot.mybatis.dao : debug
 
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: postgresql
+  reasonable: true
+  supportMethodsArguments: true
+  .params=count: countSql
 
 
 
