@@ -11,7 +11,7 @@
     </resultMap>
 
     <select id="selectAllStaff" resultType="com.springboot.mybatis.domain.Company">
-        select * from company
+        select * from company order by id
     </select>
     <select id="selectAllStaffById" resultType="com.springboot.mybatis.domain.Company">
         select * from company where id = #{id}
